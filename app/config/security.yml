@@ -8,12 +8,21 @@ security:
             memory: ~
 
     firewalls:
+        
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
         main:
+            form_login:
+                login_path: /my-login-url
+                check_path: _security_check
+
+            logout:
+                path: _demo_logout
+                target: _demo
+
             anonymous: ~
             # activate different ways to authenticate
 
