@@ -5,12 +5,12 @@ namespace Yoda\EventBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Events
+ * Event
  *
- * @ORM\Table(name="yoda_event")
- * @ORM\Entity(repositoryClass="Yoda\EventBundle\Repository\EventsRepository")
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Yoda\EventBundle\Repository\EventRepository")
  */
-class Events
+class Event
 {
     /**
      * @var int
@@ -65,7 +65,7 @@ class Events
      *
      * @param string $name
      *
-     * @return Events
+     * @return Event
      */
     public function setName($name)
     {
@@ -89,7 +89,7 @@ class Events
      *
      * @param \DateTime $time
      *
-     * @return Events
+     * @return Event
      */
     public function setTime($time)
     {
@@ -113,7 +113,7 @@ class Events
      *
      * @param string $location
      *
-     * @return Events
+     * @return Event
      */
     public function setLocation($location)
     {
@@ -137,7 +137,7 @@ class Events
      *
      * @param string $details
      *
-     * @return Events
+     * @return Event
      */
     public function setDetails($details)
     {

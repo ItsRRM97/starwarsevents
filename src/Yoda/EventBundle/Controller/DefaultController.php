@@ -12,7 +12,7 @@ class DefaultController extends Controller
     	$em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('EventBundle:Events');
         
-            	$event = $repo->findOneBy(array('name'=>'Darth\'s surprise birthday party!'));
+            	$event = $repo->findOneBy(array('name'=>'Darth Birthay Party'));
   
     		return $this->render('EventBundle:Default:index.html.twig',
     			array('name' => $firstName, 'count' => $count, 'event' => $event)
