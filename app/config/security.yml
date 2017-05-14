@@ -1,11 +1,19 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
-security:
 
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+security:
+    encoders:
+        Yoda\UserBundle\Entity\User:
+            algorithm: bcrypt
+
+    # ...
     providers:
-        in_memory:
-            memory: ~
+        your_db_provider:
+            entity:
+                class: UserBundle:User
+                property: username
+
+    # ...
 
     firewalls:
         
@@ -15,6 +23,10 @@ security:
             security: false
 
         main:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+
             form_login:
                 login_path: /login
                 check_path: /login_check
@@ -34,4 +46,6 @@ security:
 
     access_control:
         - { path: ^/new, roles: ROLE_USER }
+        - { path: ^/event, roles: ROLE_USER }
         - { path: ^/create, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
