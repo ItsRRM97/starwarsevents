@@ -16,12 +16,12 @@ security:
 
         main:
             form_login:
-                login_path: /my-login-url
-                check_path: _security_check
+                login_path: /login
+                check_path: /login_check
 
             logout:
-                path: _demo_logout
-                target: _demo
+                path: /logout
+                target: event
 
             anonymous: ~
             # activate different ways to authenticate
@@ -33,5 +33,5 @@ security:
             #form_login: ~
 
     access_control:
-        - { path: ^.new, roles: ROLE_USER }
+        - { path: ^/new, roles: ROLE_USER }
         - { path: ^/create, roles: ROLE_USER }
